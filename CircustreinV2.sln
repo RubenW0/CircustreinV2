@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircustreinV2", "CircustreinV2\CircustreinV2.csproj", "{FDAB669A-BA6A-4300-B4BD-361970A63FF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDAB669A-BA6A-4300-B4BD-361970A63FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDAB669A-BA6A-4300-B4BD-361970A63FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDAB669A-BA6A-4300-B4BD-361970A63FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDAB669A-BA6A-4300-B4BD-361970A63FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E754D79-A0F4-49D9-A086-493433ADC10F}
+	EndGlobalSection
+EndGlobal
