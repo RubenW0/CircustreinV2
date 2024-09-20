@@ -10,8 +10,9 @@ namespace CircustreinV2
     {
         public enum Diet
         {
-            Carnivore,
-            Herbivore
+            Herbivore,
+            Carnivore
+            
         }
 
         public enum Size
@@ -38,6 +39,11 @@ namespace CircustreinV2
         public Size GetSize()
         {
             return AnimalSize;
+        }
+
+        public int GetPoints()
+        {
+            return (int)AnimalSize;
         }
 
     }

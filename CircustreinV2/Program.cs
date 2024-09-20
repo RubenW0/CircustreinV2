@@ -11,27 +11,37 @@ namespace Circustrein
     internal class Program
     {
         public static List<Animal> animals;
+        public static Train train = new Train();
 
         static void Main()
         {
             animals = new List<Animal>();
 
-            animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Small));
-            animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Small));
-            animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Medium));
-            animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Medium));
-            animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Large));
-            animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Large));
+            //train.animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Small));
+            //train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Small));
+            //train.animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Medium));
+            //train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Medium));
+            //train.animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Large));
+            //train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Large));
 
-            PrintAnimalList();
+            train.animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Small));
+            train.animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Small));
+            train.animals.Add(new Animal(Animal.Diet.Carnivore, Animal.Size.Small));
+
+            train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Medium));
+            train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Medium));
+            train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Medium));
+            train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Large));
+            train.animals.Add(new Animal(Animal.Diet.Herbivore, Animal.Size.Large));
+
+
+
+            train.SortAnimals();
+            train.PrintSortedAnimals();
+            train.PlaceAnimalsInWagonsByOrderAndChooseTheMostEfficient();
+            train.PrintDistribution();
+
         }
 
-        static void PrintAnimalList()
-        { 
-            foreach (var animal in animals)
-            {
-                Console.WriteLine($"Animal Diet: {animal.GetDiet()}, Size: {animal.GetSize()}");
-            }
-        }
     }
 }
