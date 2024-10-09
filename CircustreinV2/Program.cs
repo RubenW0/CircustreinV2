@@ -37,10 +37,38 @@ namespace Circustrein
 
 
             train.SortAnimals();
-            train.PrintSortedAnimals();
+            PrintSortedAnimals(train);
             train.PlaceAnimalsInWagonsByOrderAndChooseTheMostEfficient();
-            train.PrintDistribution();
+            PrintDistribution(train);
+        }
 
+        public static void PrintSortedAnimals(Train train)
+        {
+            Console.WriteLine("Animals Ascending (Carnivores and Herbivores Small to Large):");
+            foreach (var animal in train.animalsAscending)
+            {
+                Console.WriteLine($"Diet: {animal.GetDiet()}, Size: {animal.GetSize()}");
+            }
+
+            Console.WriteLine("\nAnimals Descending (Carnivores Small to Large, Herbivores Large to Small):");
+            foreach (var animal in train.animalsDescending)
+            {
+                Console.WriteLine($"Diet: {animal.GetDiet()}, Size: {animal.GetSize()}");
+            }
+        }
+
+        public static void PrintDistribution(Train train)
+        {
+            var wagons = train.GetWagons();
+            for (int i = 0; i < wagons.Count(); i++)
+            {
+                Console.WriteLine($"Wagon {i + 1}:");
+                foreach (var animal in wagons[i].GetAnimals())
+                {
+                    Console.WriteLine($"- {animal.GetDiet()} {animal.GetSize()}");
+                }
+                Console.WriteLine();
+            }
         }
 
     }

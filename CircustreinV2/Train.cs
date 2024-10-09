@@ -23,17 +23,21 @@ namespace CircustreinV2
             animalsDescending = new List<Animal>();
         }
 
+        public List<Wagon> GetWagons()
+        {
+            return wagonList;
+        }
+
+
         public void SortAnimals()
         {
             // Ascending list:
-            // Sort by size (Small to Large), but for each size, carnivores come before herbivores
             animalsAscending = animals
                 .OrderBy(a => a.GetSize())  // Small to large by size
                 .ThenBy(a => a.GetDiet() == Animal.Diet.Carnivore ? 0 : 1) // Carnivores first
                 .ToList();
 
             // Descending list:
-            // Sort by carnivores first (Small to Large), then herbivores (Large to Small)
             animalsDescending = animals
                 .OrderBy(a => a.GetDiet() == Animal.Diet.Carnivore ? 0 : 1) // Carnivores first
                 .ThenBy(a => a.GetDiet() == Animal.Diet.Carnivore
@@ -42,21 +46,6 @@ namespace CircustreinV2
                 .ToList();
         }
         
-
-        public void PrintSortedAnimals()
-        {
-            Console.WriteLine("Animals Ascending (Carnivores and Herbivores Small to Large):");
-            foreach (var animal in animalsAscending)
-            {
-                Console.WriteLine($"Diet: {animal.GetDiet()}, Size: {animal.GetSize()}");
-            }
-
-            Console.WriteLine("\nAnimals Descending (Carnivores Small to Large, Herbivores Large to Small):");
-            foreach (var animal in animalsDescending)
-            {
-                Console.WriteLine($"Diet: {animal.GetDiet()}, Size: {animal.GetSize()}");
-            }
-        }
 
         public void PlaceAnimalsInWagonsByOrderAndChooseTheMostEfficient()
         {
@@ -104,17 +93,9 @@ namespace CircustreinV2
         }
 
 
-        public void PrintDistribution()
+        public int GetWagonCount()
         {
-            for (int i = 0; i < wagonList.Count; i++)
-            {
-                Console.WriteLine($"Wagon {i + 1}:");
-                foreach (var animal in wagonList[i].GetAnimals())
-                {
-                    Console.WriteLine($"- {animal.GetDiet()} {animal.GetSize()}");
-                }
-                Console.WriteLine();
-            }
+            return wagonList.Count;
         }
 
     }

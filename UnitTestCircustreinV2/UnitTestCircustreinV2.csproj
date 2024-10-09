@@ -14,6 +14,12 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+	<ProjectReference Include="C:\Users\ruben\source\repos\CircustreinV2\CircustreinV2\CircustreinV2.csproj" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CircustreinV2\CircustreinV2.csproj" />
   </ItemGroup>
 
   <ItemGroup>

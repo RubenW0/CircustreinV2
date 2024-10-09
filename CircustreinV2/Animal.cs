@@ -46,6 +46,25 @@ namespace CircustreinV2
             return (int)AnimalSize;
         }
 
+        public bool CanCoexistWith(Animal otherAnimal)
+        {
+            if (this.AnimalDiet == Diet.Carnivore && (int)this.AnimalSize >= (int)otherAnimal.AnimalSize)
+            {
+                return false;
+            }
+
+            if (otherAnimal.AnimalDiet == Diet.Carnivore && (int)otherAnimal.AnimalSize >= (int)this.AnimalSize)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override string ToString()
+        {
+            return GetSize().ToString() + "-" + GetDiet().ToString();
+        }
     }
 }
 

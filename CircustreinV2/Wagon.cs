@@ -15,9 +15,9 @@ namespace CircustreinV2
             animalsInWagon = new List<Animal>();
         }
 
-        public List<Animal> GetAnimals()
+        public IReadOnlyList<Animal> GetAnimals()
         {
-            return animalsInWagon;
+            return animalsInWagon as IReadOnlyList<Animal>;
         }
 
         public int GetTotalPoints()
@@ -37,18 +37,14 @@ namespace CircustreinV2
                 return false;
             }
 
-            for (int i = 0; i < animalsInWagon.Count; i++)
+            foreach (var excistingAnimal in animalsInWagon)
             {
-                if (animalsInWagon[i].GetDiet() == Animal.Diet.Carnivore && (int)animalsInWagon[i].GetSize() >= (int)animal.GetSize())
-                {
-                    return false;
-                }
-
-                if (animal.GetDiet() == Animal.Diet.Carnivore && (int)animalsInWagon[i].GetSize() <= (int)animal.GetSize())
+                if (!animal.CanCoexistWith(excistingAnimal))
                 {
                     return false;
                 }
             }
+
             animalsInWagon.Add(animal);
             return true;
 
